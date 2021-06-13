@@ -1,0 +1,13 @@
+#!/bin/bash
+set -x
+
+mkdir -p <%= ENV["BEE_ROOT_PATH"] %>/node_<%= ENV["BEE_NODE_NAME"] %>
+cd $_
+
+cd ./data/clef/
+cp ~/clef-template.tar.gz .
+tar xzvf clef-template.tar.gz
+
+cd <%= ENV["BEE_ROOT_PATH"] %>/node_<%= ENV["BEE_NODE_NAME"] %>
+
+docker-compose up -d
